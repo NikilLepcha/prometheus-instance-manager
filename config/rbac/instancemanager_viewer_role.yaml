@@ -1,0 +1,23 @@
+# permissions for end users to view instancemanagers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: prometheus-instance-manager
+    app.kubernetes.io/managed-by: kustomize
+  name: instancemanager-viewer-role
+rules:
+- apiGroups:
+  - instancemanager.example.org
+  resources:
+  - instancemanagers
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - instancemanager.example.org
+  resources:
+  - instancemanagers/status
+  verbs:
+  - get

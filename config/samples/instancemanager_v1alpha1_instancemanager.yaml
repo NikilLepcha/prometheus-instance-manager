@@ -1,0 +1,15 @@
+apiVersion: instancemanager.example.org/v1alpha1
+kind: InstanceManager
+metadata:
+  labels:
+    app.kubernetes.io/name: prometheus-instance-manager
+    app.kubernetes.io/managed-by: kustomize
+  name: instancemanager-sample
+spec:
+  name: Prom-Instance
+  replicas: 1
+  volumeSize: 2
+  image: prom/prometheus
+  scrapeInterval: 15s
+status:
+  availableReplicas: 2
